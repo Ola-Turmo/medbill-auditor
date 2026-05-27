@@ -1,0 +1,16 @@
+GENERAL HOSPITAL
+Patient: John Smith
+Account: MH-48291-03
+Date of Service: 04/12/2026
+
+SERVICES:
+99284  Emergency visit - high severity    $377.00
+20670  Suture removal                     $95.00
+90718  Tetanus vaccine                    $45.00
+90718  Tetanus vaccine (DUPLICATE)        $45.00
+74176  CT Scan - Abdomen                  $3,420.00
+85025  CBC - Complete Blood Count         $85.00
+71045  Chest X-ray - 1 view               $45.00
+99213  Office visit - established         $120.00
+
+Total Charged: $4,232.00

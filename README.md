@@ -1,44 +1,80 @@
 # MedBill Auditor
 
-**Concept research for an autonomous medical bill auditing service.**
+**World-class, fully autonomous medical bill auditing platform.**  
+AI-powered. Consumer + B2B. HIPAA compliant.
 
-Medical billing errors affect 30-50% of US medical bills. Existing solutions are human-powered (slow, expensive) or enterprise-only. This repo explores a fully automated, AI-native alternative.
+## Architecture
 
-## Key Findings
+```
+User → Cloudflare Pages (Frontend)
+         │ POST /api/upload
+         ▼
+     CF Workers (API + Queue)
+         │ GET /api/queue/next
+         ▼
+     VPS Cron (Python Audit Engine)
+         │ OCR → CMS Compare → LLM Overlay → Report
+         │ POST /api/report
+         ▼
+     User gets email with report link
+```
 
-- Open-source billing code databases already exist (CPT, ICD-10, modifiers, denial codes, bundling rules)
-- BillScan (github.com/lamb356/billscan) is a complete MIT-licensed implementation with 1M+ CMS rates, OCR pipeline, dispute letter generation, and a $9.99/month pricing model — but has 0 stars and 0 users
-- LLMs can detect upcoding, unbundling, duplicate billing, modifier errors, and denial code errors on top of rate comparisons
-- No consumer-facing automated audit product exists
-- Unit economics are favorable (99%+ gross margin)
-- Buildable within 1-2 weeks by forking BillScan and adding an LLM audit overlay + autonomous pipeline
+## Stack
 
-## Repository Contents
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | Cloudflare Pages (static HTML/CSS/JS) |
+| **API** | Cloudflare Workers (itty-router + Stripe) |
+| **Storage** | Cloudflare KV (jobs, queue, reports), R2 (bills) |
+| **OCR** | pdfplumber / Tesseract |
+| **CMS Rates** | 50+ CPT rate estimates (extensible from BillScan) |
+| **LLM Audit** | pi CLI (pi --print) |
+| **Queue** | KV-based (queue: prefix) |
+| **Cron** | Hermes cron (every 2-3 min) |
+| **Email** | AgentMail |
+| **Payments** | Stripe |
+
+## Files
 
 | File | Description |
 |------|-------------|
-| `design.md` | Full visual design concept: layout, color system, typography, conversion strategy, section-by-section walkthrough of the landing page |
-| `research.md` | Initial market analysis: problem sizing, competitor landscape, billing error taxonomy (10 detectable types), business model options, regulatory analysis |
-| `deep-research.md` | Deep dive: BillScan discovery (complete open-source implementation), competitive landscape update, tiered build strategy (fork -> LLM overlay -> pipeline -> B2B), improved technical architecture, risk analysis |
-| `test-plan.md` | End-to-end test plan with 71 test cases across 12 categories: landing page, free scan flow, full audit flow, report consumption, action taking, billing, B2B, edge cases, mobile, security, and post-launch verification |
+| `index.html` | Landing page (hero, stats, how-it-works, pricing, FAQ) |
+| `report.html` | Report viewer with findings, dispute letter, phone script |
+| `b2b.html` | B2B page for medical practices |
+| `css/style.css` | Full design system (Swiss/modern SaaS) |
+| `js/app.js` | Upload flow, drag-drop, status polling |
+| `functions/api/upload.js` | CF Worker: API endpoints |
+| `engine/audit.py` | Python audit pipeline |
+| `cron/process_queue.py` | Cron entry point |
+| `wrangler.toml` | Cloudflare Pages configuration |
 
-## Build Strategy
+## Deployment
 
-1. **Week 1** — Fork BillScan, deploy as hosted service, connect Stripe
-2. **Week 2** — Add LLM audit overlay for coding error detection (upcoding, unbundling, modifiers, denials)
-3. **Week 3** — Add autonomous cron-based processing pipeline with email delivery
-4. **Week 4** — Launch B2B tier for medical practices and nursing homes
+### Frontend
+```bash
+npm install
+npx wrangler pages deploy .
+```
 
-## Pricing Model
+### VPS Pipeline
+```bash
+pip install -r engine/requirements.txt
+python cron/process_queue.py --once   # manual
+python cron/process_queue.py --cron   # daemon
+```
 
-| Tier | Price | For whom |
-|------|-------|----------|
-| Free Scan | $0 | Anyone — upload bill, get error probability + savings range |
-| Full Audit | $29 | Individuals — complete analysis + dispute letter + phone script |
-| Starter (B2B) | $99/mo | Small practices — 100 bills/month |
-| Professional (B2B) | $299/mo | Larger practices — 500 bills/month + API |
-| Enterprise | Custom | Hospitals and billing departments |
+### Required Secrets (wrangler secret put)
+- `STRIPE_SECRET_KEY`
+- `STRIPE_WEBHOOK_SECRET`
+- `AGENTMAIL_API_KEY`
+- `JWT_SECRET`
 
-## Status
+## Pricing
 
-Pre-build research phase. Ready to prototype when payment infrastructure (Stripe) is connected. All technical building blocks exist as open source.
+| Tier | Price | For |
+|------|-------|-----|
+| Free Scan | $0 | Anyone — upload, get savings range |
+| Full Audit | $29 | Detailed report + dispute letter |
+| B2B Starter | $99/mo | 100 bills/month |
+| B2B Pro | $299/mo | 500 bills/month + API |
+| Enterprise | Custom | Unlimited |

@@ -1,0 +1,17 @@
+{
+  "name": "medbill-auditor",
+  "version": "1.0.0",
+  "description": "World-class medical bill auditing platform",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev --local --port 8788",
+    "deploy": "wrangler pages deploy --project-name medbill-auditor ."
+  },
+  "dependencies": {
+    "itty-router": "^5.0.17",
+    "stripe": "^16.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
+  }
+}

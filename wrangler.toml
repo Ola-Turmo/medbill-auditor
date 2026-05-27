@@ -1,0 +1,35 @@
+name = "medbill-auditor"
+compatibility_date = "2026-05-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "."
+
+routes = [
+  { pattern = "medbill.ai/*", zone_id = "auto" },
+  { pattern = "www.medbill.ai/*", zone_id = "auto" }
+]
+
+[[kv_namespaces]]
+binding = "MEDBILL_KV"
+id = "medbill-kv"
+preview_id = "medbill-kv-preview"
+
+[[r2_buckets]]
+binding = "BILLS_BUCKET"
+bucket_name = "medbill-bills"
+preview_bucket_name = "medbill-bills-preview"
+
+[[d1_databases]]
+binding = "MEDBILL_DB"
+database_name = "medbill-db"
+database_id = "medbill-db-id"
+preview_database_id = "medbill-db-preview"
+
+[vars]
+SITE_URL = "https://medbill.ai"
+CONTACT_EMAIL = "support@medbill.ai"
+SCAN_EMAIL = "scan@medbill.ai"
+STRIPE_FREE_SCAN_PRICE_ID = "price_free_scan"
+STRIPE_FULL_AUDIT_PRICE_ID = "price_full_audit"
+STRIPE_B2B_STARTER_PRICE_ID = "price_b2b_starter"
+STRIPE_B2B_PRO_PRICE_ID = "price_b2b_pro"
+ENVIRONMENT = "production"

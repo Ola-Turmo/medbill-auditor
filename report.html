@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Audit Report — MedBill</title><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/css/style.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>.report-header{background:#f8fafc;border-bottom:1px solid #e0e4e8;padding:40px 0}.findings{padding:48px 0}.finding{padding:24px;border:1px solid #e8ecf0;border-radius:12px;margin-bottom:16px}.finding h3{display:flex;justify-content:space-between;font-size:16px;margin-bottom:8px}.finding p{font-size:14px;color:#555}.sev-high{border-left:3px solid #dc2626}.sev-medium{border-left:3px solid #d97706}.sev-low{border-left:3px solid #16a34a}.dispute-box{background:#f8fafc;border:1px solid #e0e4e8;border-radius:12px;padding:28px;font-size:14px;line-height:1.8;white-space:pre-wrap;font-family:Georgia,serif}.actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}@media print{header,footer,.actions{display:none!important}}</style></head>
+<body>
+<div class="brand-stripe"></div>
+<header class="site-header"><div class="container header-inner"><a href="/" class="logo">MedBill</a><nav class="header-nav"><a href="/" class="login-link">← New Scan</a></nav></div></header>
+<div id="root"><div style="text-align:center;padding:80px 24px;color:#999"><div class="status-spinner" style="margin-bottom:16px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><circle cx="12" cy="12" r="10" stroke-dasharray="63" stroke-dashoffset="40" stroke-linecap="round"/></svg></div>Loading report...</div></div>
+<footer class="site-footer"><div class="container footer-inner"><div class="footer-brand"><a href="/" class="footer-logo">MedBill</a><p class="footer-copy">&copy; 2026 MedBill. This is not legal advice.</p></div></div></footer>
+<script>
+(async()=>{
+  const id=window.location.pathname.split('/').pop(),root=document.getElementById('root');
+  try{
+    const r=await fetch('/api/report/'+encodeURIComponent(id));
+    if(!r.ok){root.innerHTML='<div class="container" style="padding:80px 24px;text-align:center"><h1 style="font-size:28px;font-weight:800;margin-bottom:8px">Report not found</h1><p style="color:#666">This link may have expired.</p><a href="/" style="display:inline-block;margin-top:16px;padding:12px 28px;background:#1a3a5c;color:#fff;border-radius:10px;font-weight:600">Start new scan</a></div>';return;}
+    const d=await r.json();render(d);
+  }catch(e){root.innerHTML='<div class="container" style="padding:80px 24px;text-align:center"><h1>Could not load report</h1><button onclick="location.reload()">Retry</button></div>';}
+  function render(d){
+    const f=d.findings||[],sav=f.reduce((s,x)=>s+(x.amount||0),0),num=f.length;
+    const sev=!num?'low':f.some(x=>x.severity==='high')?'high':f.some(x=>x.severity==='medium')?'medium':'low';
+    const lbl={'high':'High Risk','medium':'Moderate Risk','low':'Low Risk'}[sev];
+    const clr={'high':'#dc2626','medium':'#d97706','low':'#16a34a'}[sev];
+    let h='';
+    h+=`<section class="report-header"><div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center">
+      <div style="display:flex;align-items:center;gap:16px">
+        <div style="width:80px;height:80px;border-radius:50%;background:${clr};display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#fff">${num}</div>
+        <div><div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase">Errors Detected</div><div style="font-size:18px;font-weight:700">${lbl}</div><div style="font-size:12px;color:#999">${d.billed_amount||''}</div></div>
+      </div>
+      <div style="text-align:center"><div style="font-size:42px;font-weight:900;color:#15a077">${d.plan==='free'?'Up to ':''}$${sav.toLocaleString()}</div><div style="font-size:14px;color:#666">Potential Savings</div><div style="font-size:12px;color:#999">${num} error${num!==1?'s':''} across ${d.service_count||0} services</div></div>
+    </div></section>`;
+    if(d.plan==='free'){
+      h+=`<section class="section"><div class="container" style="text-align:center;max-width:520px"><h2 style="font-size:24px;font-weight:800;margin-bottom:12px">We found potential savings</h2><p style="color:#666;margin-bottom:24px">Upgrade to full audit for detailed findings, dispute letter, and phone script.</p><a href="/checkout?plan=full-audit&report=${encodeURIComponent(id)}" class="btn btn-primary">Show Full Report — $29</a><p style="font-size:12px;color:#999;margin-top:12px">One-time payment. No subscription.</p></div></section>`;
+    }else{
+      h+=`<section class="findings"><div class="container"><h2 style="font-size:20px;font-weight:700;margin-bottom:24px">Line-by-Line Findings</h2>`;
+      f.forEach(x=>{h+=`<div class="finding sev-${x.severity||'low'}"><div><h3><span>${x.type||'Error'}</span><span style="color:#dc2626">$${(x.amount||0).toLocaleString()}</span></h3><p>${x.detail||x.description||''}</p>${x.citation?`<p style="font-size:12px;color:#999;margin-top:4px;font-style:italic">${x.citation}</p>`:''}</div></div>`;});
+      h+=`</div></section>`;
+      if(d.dispute_letter){h+=`<section class="section" style="border-top:1px solid #e8ecf0"><div class="container"><h2 style="font-size:20px;font-weight:700;margin-bottom:16px">Dispute Letter</h2><div class="dispute-box">${d.dispute_letter}</div><div class="actions"><button onclick="navigator.clipboard.writeText(document.querySelector('.dispute-box').textContent).then(()=>alert('Copied!'))" class="btn btn-outline">Copy</button><a href="mailto:?subject=Medical%20Bill%20Dispute&body=${encodeURIComponent(d.dispute_letter)}" class="btn btn-primary">Send via Email</a></div></div></section>`;}
+      if(d.phone_script){h+=`<section class="section" style="border-top:1px solid #e8ecf0"><div class="container"><h2 style="font-size:20px;font-weight:700;margin-bottom:16px">Phone Script</h2><div class="dispute-box" style="font-family:Inter,sans-serif">${d.phone_script}</div><div class="actions"><button onclick="navigator.clipboard.writeText(document.querySelectorAll('.dispute-box')[1].textContent).then(()=>alert('Copied!'))" class="btn btn-outline">Copy</button></div></div></section>`;}
+      h+=`<section class="section" style="border-top:1px solid #e8ecf0"><div class="container"><div class="actions"><button onclick="window.print()" class="btn btn-outline">Print</button><button onclick="navigator.clipboard.writeText(window.location.href).then(()=>alert('Copied!'))" class="btn btn-outline">Copy Link</button><a href="/" class="btn btn-outline">Scan Another</a></div></div></section>`;
+    }
+    root.innerHTML=h;
+    document.title=`Audit Report — ${num} error${num!==1?'s':''} found — MedBill`;
+  }
+})();
+</script>
+</body>
+</html>

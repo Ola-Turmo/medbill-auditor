@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedBill — Your Medical Bill May Be Wrong. We'll Check It Free.</title>
+<meta name="description" content="MedBill analyzes your medical bills for errors and overcharges. Free scan — no account needed.">
+<meta property="og:title" content="MedBill — Your Medical Bill May Be Wrong">
+<meta property="og:description" content="AI-powered medical bill auditing. Free scan. Save thousands.">
+<meta name="theme-color" content="#1a3a5c">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script defer src="/js/app.js"></script>
+</head>
+<body>
+<div class="brand-stripe"></div>
+<header class="site-header"><div class="container header-inner"><a href="/" class="logo">MedBill</a><nav class="header-nav"><a href="#how-it-works">How It Works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="/login" class="login-link">Log in</a><button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav></div></header>
+
+<section class="hero"><div class="container hero-inner"><div class="hero-content">
+<h1 class="hero-headline"><span class="hero-headline-em">80%</span> of medical bills contain errors.<br>You are probably paying <span class="teal-em">too much.</span></h1>
+<p class="hero-subtext">Upload your bill and find out for free. No account needed. 2 minutes. HIPAA compliant.</p>
+<div class="hero-actions"><div class="upload-zone" id="hero-upload-zone"><input type="file" id="hero-file-input" accept=".pdf,.jpg,.jpeg,.png" hidden><div class="upload-zone-content"><svg class="upload-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg><span>Upload your bill</span></div></div>
+<div class="email-option">or email it to <a href="mailto:scan@medbill.ai" class="email-link">scan@medbill.ai</a></div></div>
+<div class="hero-badge-row"><span class="hero-badge">🔒 HIPAA Compliant</span><span class="hero-badge">⚡ 2-Minute Scan</span><span class="hero-badge">✅ No Account Needed</span></div></div>
+<div class="hero-visual"><div class="bill-card"><div class="bill-card-header"><div class="bill-card-dots"><span></span><span></span><span></span></div><span class="bill-card-title">GENERAL HOSPITAL</span><span class="bill-card-subtitle">Patient Bill</span></div>
+<div class="bill-card-body"><div class="bill-card-row"><span>Account #</span><span>MH-48291-03</span></div><div class="bill-card-row"><span>Due Date</span><span>05/15/2026</span></div><div class="bill-divider"></div>
+<div class="bill-card-row bill-item"><span>Facility Fee</span><span>$1,850.00</span></div><div class="bill-card-row bill-item"><span>CT Scan — Abdomen</span><span>$3,420.00</span></div>
+<div class="bill-card-row bill-item"><span>Radiology Services</span><span>$895.00</span></div><div class="bill-card-row bill-item"><span>Pharmacy — Contrast</span><span>$380.00</span></div>
+<div class="bill-divider"></div><div class="bill-card-row bill-total"><span>Total Due</span><span>$8,545.00</span></div></div>
+<div class="savings-badge"><div class="savings-badge-label">POTENTIAL SAVINGS</div><div class="savings-badge-amount">$2,341</div><div class="savings-badge-sub">FOUND</div></div></div></div></div></section>
+
+<section class="stats-strip"><div class="container stats-inner">
+<div class="stat-card"><div class="stat-number">$750B+</div><div class="stat-text">billed in medical billing waste every year</div><div class="stat-source">— Peterson Center on Healthcare</div></div>
+<div class="stat-divider"></div>
+<div class="stat-card"><div class="stat-number">30–50%</div><div class="stat-text">of medical bills contain at least one error</div><div class="stat-source">— Journal of the American Medical Association</div></div>
+<div class="stat-divider"></div>
+<div class="stat-card"><div class="stat-number">$500+</div><div class="stat-text">average overcharge per billing error</div><div class="stat-source">— Health Affairs</div></div>
+</div></section>
+
+<section class="section" id="how-it-works"><div class="container"><span class="section-label">HOW IT WORKS</span><h2 class="section-title">Three steps to find out what you should actually pay.</h2>
+<div class="steps-grid">
+<div class="step-card"><div class="step-number">1</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div><h3 class="step-title">Upload your bill</h3><p class="step-desc">Upload a photo, PDF, or screenshot. Or email it. Your data is encrypted.</p></div>
+<div class="step-arrow"><svg width="40" height="24" viewBox="0 0 40 24" fill="none"><path d="M0 12h30M24 6l6 6-6 6" stroke="#1a3a5c" stroke-width="2"/></svg></div>
+<div class="step-card"><div class="step-number">2</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h3 class="step-title">We analyze every line</h3><p class="step-desc">Each charge is checked against CMS rates, CPT coding rules, and payer policies.</p></div>
+<div class="step-arrow"><svg width="40" height="24" viewBox="0 0 40 24" fill="none"><path d="M0 12h30M24 6l6 6-6 6" stroke="#1a3a5c" stroke-width="2"/></svg></div>
+<div class="step-card"><div class="step-number">3</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg></div><h3 class="step-title">You get results fast</h3><p class="step-desc">See what&rsquo;s wrong, what it should cost, and a dispute letter — in under 5 minutes.</p></div>
+</div></div></section>
+
+<section class="section section-alt"><div class="container"><span class="section-label">WHAT WE DETECT</span><h2 class="section-title">Six types of billing errors. One scan.</h2>
+<div class="detect-grid">
+<div class="detect-card detect-upcoding"><div class="detect-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><h3 class="detect-title">Upcoding</h3><p class="detect-desc">Billed for a more expensive service than performed. Common with ER visits and surgeries.</p><span class="detect-frequency">Very Common</span></div>
+<div class="detect-card detect-unbundling"><div class="detect-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/></svg></div><h3 class="detect-title">Unbundling</h3><p class="detect-desc">Services split into separate expensive charges instead of a single package.</p><span class="detect-frequency">Common</span></div>
+<div class="detect-card detect-duplicate"><div class="detect-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></div><h3 class="detect-title">Duplicate Billing</h3><p class="detect-desc">Same service charged twice on the same date. Common with lab panels and imaging.</p><span class="detect-frequency">Very Common</span></div>
+<div class="detect-card detect-modifier"><div class="detect-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h3 class="detect-title">Wrong Modifier</h3><p class="detect-desc">Missing or incorrect CPT modifiers that change procedure pricing.</p><span class="detect-frequency">Common</span></div>
+<div class="detect-card detect-balance"><div class="detect-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3 class="detect-title">Balance Billing</h3><p class="detect-desc">Charged above in-network rate or unknowingly treated by out-of-network provider.</p><span class="detect-frequency">Moderate</span></div>
+<div class="detect-card detect-denial"><div class="detect-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div><h3 class="detect-title">Wrong Denial Code</h3><p class="detect-desc">Insurance applied incorrect denial code. We check CARC codes and tell you how to appeal.</p><span class="detect-frequency">Less Common</span></div>
+</div></div></section>
+
+<section class="section"><div class="container case-study-inner">
+<div><div class="quote-mark"><svg width="48" height="48" viewBox="0 0 48 48" fill="#1a3a5c"><path d="M0 48V24C0 10.7 10.7 0 24 0v12c-6.6 0-12 5.4-12 12v24H0z m24 0V24c0-13.3 10.7-24 24-24v12c-6.6 0-12 5.4-12 12v24H24z"/></svg></div><blockquote class="testimonial-quote">"MedBill found thousands in errors on my bill. I almost paid it in full."</blockquote><cite class="testimonial-attribution">— Karen T., Texas</cite></div>
+<div class="before-after"><div><span class="before-after-label">Original Bill</span><span class="before-after-amount before">$8,545</span></div><div><svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h26M20 2l6 6-6 6" stroke="#1a3a5c" stroke-width="2"/></svg></div><div><span class="before-after-label">What You Should Pay</span><span class="before-after-amount after">$6,204</span></div><div class="before-after-savings"><span class="savings-label">You Save</span><span class="savings-amount">$2,341</span></div></div></div></section>
+
+<section class="section section-alt"><div class="container"><span class="section-label">WHY TRUST US</span><h2 class="section-title">Built for accuracy. Designed for privacy.</h2>
+<div class="trust-grid">
+<div class="trust-card"><div class="trust-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 class="trust-title">Secure & Private</h3><p class="trust-desc">End-to-end encrypted. Processed in memory. Never shared or sold.</p></div>
+<div class="trust-card"><div class="trust-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3 class="trust-title">Expert-Built</h3><p class="trust-desc">Built with billing specialists and the 1M+ CMS rate database.</p></div>
+<div class="trust-card"><div class="trust-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg></div><h3 class="trust-title">No Upfront Cost</h3><p class="trust-desc">Free scan — no credit card. Pay $29 for a full audit if we find errors.</p></div>
+<div class="trust-card"><div class="trust-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 class="trust-title">Results in Minutes</h3><p class="trust-desc">Most scans complete in under 5 minutes. Email with your report link.</p></div>
+</div></div></section>
+
+<section class="section" id="pricing"><div class="container pricing-inner">
+<div><span class="section-label">CHOOSE YOUR PLAN</span><h2 class="pricing-headline">Start free. Pay only if you save.</h2><p class="pricing-desc">No subscription. No hidden fees. You only pay for a full audit when we find real savings.</p></div>
+<div class="pricing-cards">
+<div class="pricing-card"><h3 class="pricing-name">FREE SCAN</h3><div class="pricing-price"><span class="price-amount">$0</span><span class="price-period">one-time</span></div><ul class="pricing-features"><li>✅ Upload your bill</li><li>✅ Basic error scan</li><li>✅ See estimated savings</li><li>✅ No credit card</li></ul><a href="/scan" class="btn btn-outline">Get Free Scan</a></div>
+<div class="pricing-card featured"><div class="pricing-badge">MOST POPULAR</div><h3 class="pricing-name">FULL AUDIT</h3><div class="pricing-price"><span class="price-amount">$29</span><span class="price-period">one-time</span></div><ul class="pricing-features"><li>✅ Everything in Free</li><li>✅ Line-by-line audit</li><li>✅ Dispute letter</li><li>✅ Phone script</li></ul><a href="/checkout?plan=full-audit" class="btn btn-primary">Start Full Audit</a></div>
+</div></div></section>
+
+<section class="section section-alt" id="faq"><div class="container"><span class="section-label">FAQ</span><h2 class="section-title">Common questions about medical bill auditing.</h2>
+<div class="faq-list">
+<details class="faq-item" open><summary class="faq-question"><span>Is my data safe?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="faq-answer"><p>Yes. Your bill is encrypted during upload and processed in-memory. We delete source files within 24 hours. HIPAA compliant.</p></div></details>
+<details class="faq-item"><summary class="faq-question"><span>How does MedBill make money?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="faq-answer"><p>Free scans are genuinely free. We charge $29 for a full audit report with dispute letter and phone script. B2B plans from $99/month.</p></div></details>
+<details class="faq-item"><summary class="faq-question"><span>What if I already paid?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="faq-answer"><p>You can still dispute after paying. If errors are found, the provider must refund the difference.</p></div></details>
+<details class="faq-item"><summary class="faq-question"><span>What types of bills can you review?</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="faq-answer"><p>Hospital bills, ER visits, surgical bills, lab work, imaging, PT, urgent care, EOBs. PDF, JPEG, PNG up to 10MB.</p></div></details>
+</div></div></section>
+
+<section class="section section-cta"><div class="container cta-inner"><h2 class="cta-headline">Your medical bill may be wrong. Find out free.</h2><p class="cta-desc">80% of bills contain errors. Upload yours and see if you're overpaying.</p><a href="/scan" class="btn btn-primary btn-large">Upload Your Bill</a><div class="cta-email">or email it to <a href="mailto:scan@medbill.ai">scan@medbill.ai</a></div></div></section>
+
+<footer class="site-footer"><div class="container footer-inner">
+<div class="footer-brand"><a href="/" class="footer-logo">MedBill</a><p class="footer-copy">&copy; 2026 MedBill. All rights reserved.</p><p class="footer-disclaimer">This is not legal advice. Consult an attorney for your specific situation.</p></div>
+<div class="footer-links"><div class="footer-col"><h4>Product</h4><a href="#how-it-works">How It Works</a><a href="#pricing">Pricing</a><a href="/b2b">For Practices</a></div><div class="footer-col"><h4>Company</h4><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div></div>
+<div class="footer-badge"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#1a3a5c"/><path d="M20 8c6.6 0 12 5.4 12 12s-5.4 12-12 12S8 26.6 8 20 13.4 8 20 8z" fill="none" stroke="white" stroke-width="1.5"/><path d="M16 20l3 3 5-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>HIPAA Compliant</span></div></div></footer>
+<script>(function(){const p=new URLSearchParams(window.location.search);const page=p.get('page');['upload-page','status-page'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display=(page===id.replace('-page',''))?'block':'none'});if(page==='status'&&p.get('id'))document.getElementById('status-job-id').textContent=p.get('id')})();</script>
+</body>
+</html>

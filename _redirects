@@ -1,0 +1,7 @@
+/report/* /report.html 200
+/status /index.html?page=status 200
+/scan /index.html?page=upload 200
+/b2b /b2b.html 200
+/login /login.html 200
+/pricing /index.html#pricing 301
+/how-it-works /index.html#how-it-works 301

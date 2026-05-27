@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — MedBill</title>
+<meta name="description" content="Get in touch with MedBill. Support, privacy inquiries, B2B sales, and general contact.">
+<link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>.contact-page{padding:80px 0}.contact-page h1{font-size:40px;font-weight:900;margin-bottom:8px}.contact-page .sub{font-size:16px;color:#666;margin-bottom:48px}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}.contact-info h2{font-size:18px;font-weight:700;margin-bottom:8px;color:#1a3a5c}.contact-info p{font-size:15px;color:#555;margin-bottom:24px;line-height:1.6}.contact-info a{color:#1a3a5c;font-weight:600}.contact-card{padding:20px;border:1px solid #e8ecf0;border-radius:12px;margin-bottom:16px;transition:all .2s}.contact-card:hover{border-color:#1a3a5c}.contact-card h3{font-size:16px;font-weight:700;margin-bottom:4px}.contact-card p{font-size:14px;color:#666;margin:0}.contact-form label{display:block;font-size:14px;font-weight:600;margin-bottom:4px;color:#333}.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:12px 14px;border:1.5px solid#d0d5dd;border-radius:8px;font-size:15px;font-family:inherit;transition:border .2s;margin-bottom:16px}.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:none;border-color:#1a3a5c;box-shadow:0 0 0 3px rgba(26,58,92,.1)}.contact-form textarea{resize:vertical;min-height:120px}@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<div class="brand-stripe"></div>
+<header class="site-header"><div class="container header-inner"><a href="/" class="logo">MedBill</a><nav class="header-nav"><a href="/">Home</a><a href="/login" class="login-link">Log in</a></nav></div></header>
+<section class="contact-page"><div class="container" style="max-width:900px">
+<h1>Contact Us</h1>
+<p class="sub">We typically respond within 4 hours during business days (Mon-Fri, 9am-6pm ET).</p>
+<div class="contact-grid">
+<div class="contact-info">
+<div class="contact-card"><h3>📧 Support</h3><p>Bill upload issues, account help, report questions.<br><a href="mailto:support@medbill.ai">support@medbill.ai</a></p></div>
+<div class="contact-card"><h3>🔒 Privacy</h3><p>Data requests, deletion, privacy concerns.<br><a href="mailto:privacy@medbill.ai">privacy@medbill.ai</a></p></div>
+<div class="contact-card"><h3>⚖️ Legal</h3><p>Terms questions, compliance, legal inquiries.<br><a href="mailto:legal@medbill.ai">legal@medbill.ai</a></p></div>
+<div class="contact-card"><h3>🏢 B2B Sales</h3><p>Practice plans, partnerships, enterprise.<br><a href="mailto:sales@medbill.ai">sales@medbill.ai</a></p></div>
+<div class="contact-card"><h3>📬 Mail</h3><p>MedBill Inc.<br>251 Little Falls Drive<br>Wilmington, DE 19808<br>United States</p></div>
+</div>
+<div><form class="contact-form" id="contact-form" action="https://api.agentmail.to/v1/send" method="POST">
+<label for="name">Full Name</label><input type="text" id="name" name="name" required placeholder="e.g. Karen Thompson">
+<label for="email">Email Address</label><input type="email" id="email" name="email" required placeholder="you@example.com">
+<label for="subject">Subject</label><select id="subject" name="subject"><option value="support">Support — Bill upload / account help</option><option value="privacy">Privacy — Data request / deletion</option><option value="sales">B2B — Practice / partnership inquiry</option><option value="general">General — Other questions</option></select>
+<label for="message">Message</label><textarea id="message" name="message" required placeholder="Tell us how we can help..."></textarea>
+<button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
+<p style="font-size:12px;color:#999;margin-top:8px">We'll never share your contact information. By submitting, you agree to our <a href="/privacy">Privacy Policy</a>.</p>
+</form></div>
+</div></div></section>
+<footer class="site-footer"><div class="container footer-inner">
+<div class="footer-brand"><a href="/" class="footer-logo">MedBill</a><p class="footer-copy">&copy; 2026 MedBill Inc.</p></div>
+<div class="footer-links"><div class="footer-col"><h4>Company</h4><a href="/about">About Us</a><a href="/contact">Contact</a></div><div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a></div></div></div></footer>
+</body>
+</html>

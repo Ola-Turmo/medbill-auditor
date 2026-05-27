@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — MedBill</title>
+<meta name="description" content="Complete your MedBill purchase securely via Stripe.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>.checkout-page{padding:80px 0;min-height:70vh}.checkout-box{max-width:500px;margin:0 auto;text-align:center}.checkout-box h1{font-size:32px;font-weight:900;margin-bottom:8px}.checkout-box .sub{color:#666;margin-bottom:32px}.checkout-card{border:1.5px solid #e0e4e8;border-radius:14px;padding:32px 24px;margin-bottom:24px;text-align:left}.checkout-plan{font-size:12px;font-weight:700;color:#1a3a5c;letter-spacing:1px;text-transform:uppercase}.checkout-price{font-size:42px;font-weight:900;color:#111;margin:8px 0}.checkout-period{font-size:15px;color:#888}.checkout-features{margin:20px 0}.checkout-features li{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:14px;color:#555}.checkout-features li::before{content:'✅';font-size:14px}.checkout-total{border-top:1px solid #e0e4e8;padding-top:16px;margin-top:16px;display:flex;justify-content:space-between;font-size:16px;font-weight:600}.checkout-secure{font-size:13px;color:#888;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:6px}.checkout-actions{display:grid;gap:12px}.checkout-actions .btn{font-size:16px;padding:14px}.checkout-faq{margin-top:32px;text-align:left;font-size:14px;color:#666;line-height:1.6}.checkout-faq summary{cursor:pointer;font-weight:600;color:#111;padding:8px 0}.plan-detail{display:none}.plan-detail.active{display:block}</style>
+</head>
+<body>
+<div class="brand-stripe"></div>
+<header class="site-header"><div class="container header-inner"><a href="/" class="logo">MedBill</a><nav class="header-nav"><a href="/" class="login-link">← Back</a></nav></div></header>
+<section class="checkout-page"><div class="container" style="max-width:600px">
+<div class="checkout-box">
+<h1>Complete Your Purchase</h1>
+<p class="sub">Your payment is processed securely through Stripe.</p>
+
+<div id="checkout-root">
+<div style="text-align:center;color:#999;padding:40px 0"><div class="status-spinner" style="margin-bottom:16px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="1.5"><circle cx="12" cy="12" r="10" stroke-dasharray="63" stroke-dashoffset="40" stroke-linecap="round"/></svg></div>Loading plan...</div>
+</div>
+</div></div></section>
+
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get('plan') || 'full-audit';
+  const reportId = params.get('report') || '';
+  const root = document.getElementById('checkout-root');
+
+  const plans = {
+    'full-audit': { name: 'FULL AUDIT', price: 29, period: 'one-time', features: ['Line-by-line audit report', 'What you should pay', 'Dispute letter included', 'Phone script included', 'CMS rate comparison'], price_id: 'price_full_audit' },
+    'b2b-starter': { name: 'B2B STARTER', price: 99, period: '/month', features: ['100 bills/month', 'Basic CMS rate audit', 'Email reports', '14-day free trial'], price_id: 'price_b2b_starter' },
+    'b2b-pro': { name: 'B2B PROFESSIONAL', price: 299, period: '/month', features: ['500 bills/month', 'Full LLM audit overlay', 'Dashboard & analytics', 'API access', 'Priority support', '14-day free trial'], price_id: 'price_b2b_pro' },
+  };
+
+  const p = plans[plan] || plans['full-audit'];
+
+  root.innerHTML = `
+    <div class="checkout-card">
+      <div class="checkout-plan">${p.name}</div>
+      <div class="checkout-price">$${p.price}</div>
+      <div class="checkout-period">${p.period}</div>
+      <ul class="checkout-features">${p.features.map(f => '<li>' + f + '</li>').join('')}</ul>
+      <div class="checkout-total"><span>Total</span><span>$${p.price} ${p.period}</span></div>
+    </div>
+    <div class="checkout-actions">
+      <button class="btn btn-primary" onclick="checkout()" style="font-size:16px;padding:14px">Pay $${p.price} — Secure Checkout</button>
+      <a href="/" class="btn btn-outline">Cancel</a>
+    </div>
+    <div class="checkout-secure">🔒 Secure payment via Stripe</div>
+
+    <details class="checkout-faq"><summary>What happens after I pay?</summary>
+      <p>If you uploaded a bill already: we'll unlock the full report immediately — no re-processing needed. If you haven't uploaded yet: you'll be taken to the upload page. Processing takes 2-5 minutes. We'll email you when your report is ready.</p>
+    </details>
+    <details class="checkout-faq"><summary>Is this a subscription?</summary>
+      <p>Full Audit is a one-time payment of $29. B2B plans are monthly subscriptions with a 14-day free trial. Cancel anytime.</p>
+    </details>
+    <details class="checkout-faq"><summary>Can I get a refund?</summary>
+      <p>Full refund if the audit isn't delivered within 7 days. Partial refund (50%) available within 30 days if analysis is materially inaccurate. B2B plans: cancel within 14-day trial for no charge.</p>
+    </details>
+  `;
+
+  window.checkout = function() {
+    // In production, this calls POST /api/stripe/checkout
+    // For now, create a Stripe Checkout Session via the API
+    fetch('/api/stripe/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        plan: plan,
+        job_id: reportId || undefined,
+        success_url: window.location.origin + '/report/' + (reportId || 'success') + '?checkout=success',
+        cancel_url: window.location.origin + '/pricing',
+      })
+    }).then(r => r.json()).then(data => {
+      if (data.url) window.location.href = data.url;
+      else alert('Payment system initializing. Direct Stripe integration coming online.');
+    }).catch(() => {
+      alert('Payment system initializing. For now, email support@medbill.ai to complete your purchase.');
+    });
+  };
+})();
+</script>
+
+<footer class="site-footer"><div class="container footer-inner">
+<div class="footer-brand"><a href="/" class="footer-logo">MedBill</a><p class="footer-copy">&copy; 2026 MedBill Inc.</p></div>
+<div class="footer-links"><div class="footer-col"><h4>Help</h4><a href="/contact">Contact Support</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div></div></div></footer>
+</body>
+</html>

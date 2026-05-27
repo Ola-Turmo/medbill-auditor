@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In — MedBill</title>
+<meta name="description" content="Log in to your MedBill account.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>.login-page{padding:80px 0;min-height:70vh;display:flex;align-items:center}.login-box{max-width:420px;margin:0 auto;width:100%}.login-box h1{font-size:28px;font-weight:800;margin-bottom:4px;text-align:center}.login-box .sub{font-size:15px;color:#666;text-align:center;margin-bottom:32px}.login-form label{display:block;font-size:14px;font-weight:600;color:#333;margin-bottom:4px}.login-form input{width:100%;padding:12px 14px;border:1.5px solid#d0d5dd;border-radius:8px;font-size:15px;transition:border .2s;margin-bottom:16px}.login-form input:focus{outline:none;border-color:#1a3a5c;box-shadow:0 0 0 3px rgba(26,58,92,.1)}.login-divider{text-align:center;margin:24px 0;color:#999;font-size:13px}.login-divider::before,.login-divider::after{content:'';display:inline-block;width:40%;height:1px;background:#e0e4e8;vertical-align:middle}.login-divider::before{margin-right:8px}.login-divider::after{margin-left:8px}.social-login{display:grid;gap:12px}.social-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:12px;border:1.5px solid#d0d5dd;border-radius:8px;font-size:15px;font-weight:500;background:#fff;transition:all .2s}.social-btn:hover{background:#f5f8fc;border-color:#1a3a5c}.login-footer{text-align:center;margin-top:24px;font-size:14px;color:#666}.login-footer a{color:#1a3a5c;font-weight:600}</style>
+</head>
+<body>
+<div class="brand-stripe"></div>
+<header class="site-header"><div class="container header-inner"><a href="/" class="logo">MedBill</a><nav class="header-nav"><a href="/">Home</a></nav></div></header>
+<section class="login-page"><div class="container">
+<div class="login-box">
+<h1>Welcome back</h1>
+<p class="sub">Log in to view your audit reports and billing history.</p>
+<form class="login-form" onsubmit="return false;">
+<label for="login-email">Email</label><input type="email" id="login-email" placeholder="you@example.com" required>
+<label for="login-password">Password</label><input type="password" id="login-password" placeholder="Enter your password" required>
+<button type="button" onclick="alert('Account system coming soon. For now, access your report via the link in your email.')" class="btn btn-primary" style="width:100%">Log In</button>
+</form>
+<div class="login-divider">or continue with</div>
+<div class="social-login">
+<button type="button" onclick="alert('Google login coming soon. Access your report via the email link for now.')" class="social-btn">Continue with Google</button>
+<button type="button" onclick="alert('GitHub login coming soon. Access your report via the email link for now.')" class="social-btn">Continue with GitHub</button>
+</div>
+<p class="login-footer">Don't have an account? <a href="/scan">Start a free scan</a> — no account needed.</p>
+</div>
+</div></section>
+<footer class="site-footer"><div class="container footer-inner">
+<div class="footer-brand"><a href="/" class="footer-logo">MedBill</a><p class="footer-copy">&copy; 2026 MedBill Inc.</p></div></div></footer>
+</body>
+</html>

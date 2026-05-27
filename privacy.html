@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — MedBill</title>
+<meta name="description" content="MedBill Privacy Policy. How we handle, encrypt, and protect your medical bill data and PHI. HIPAA-compliant practices.">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+.legal-page{padding:80px 0}.legal-page h1{font-size:40px;font-weight:900;margin-bottom:8px;color:#111}.legal-page .last-updated{font-size:14px;color:#888;margin-bottom:40px}.legal-page h2{font-size:22px;font-weight:700;margin:40px 0 16px;color:#111;padding-bottom:8px;border-bottom:2px solid #1a3a5c}.legal-page h3{font-size:17px;font-weight:600;margin:24px 0 8px;color:#1a3a5c}.legal-page p,.legal-page li{font-size:15px;color:#444;line-height:1.7;margin-bottom:12px}.legal-page ul,.legal-page ol{padding-left:24px;margin-bottom:16px}.legal-page li{margin-bottom:6px}.legal-page .highlight-box{background:#f0f7ff;border-left:3px solid #1a3a5c;padding:20px 24px;border-radius:0 8px 8px 0;margin:20px 0}.legal-page strong{color:#111}.legal-page table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}.legal-page table th,.legal-page table td{border:1px solid #e0e4e8;padding:10px 14px;text-align:left}.legal-page table th{background:#f8fafc;font-weight:600;color:#111}
+</style>
+</head>
+<body>
+<div class="brand-stripe"></div>
+<header class="site-header"><div class="container header-inner"><a href="/" class="logo">MedBill</a><nav class="header-nav"><a href="/">Home</a><a href="/pricing">Pricing</a><a href="/login" class="login-link">Log in</a></nav></div></header>
+
+<section class="legal-page"><div class="container" style="max-width:800px">
+<h1>Privacy Policy</h1>
+<p class="last-updated">Last updated: May 27, 2026</p>
+
+<div class="highlight-box">
+<strong>Our Commitment:</strong> MedBill is designed with privacy and security as foundational principles. We process medical billing data to identify overcharges and errors — nothing more. Your Protected Health Information (PHI) is encrypted, processed in-memory, and never sold or shared.
+</div>
+
+<h2>1. Who We Are</h2>
+<p>MedBill ("we," "our," "us") operates the MedBill platform at <a href="https://medbill-auditor.pages.dev">medbill-auditor.pages.dev</a>. We provide automated medical bill auditing services to consumers and healthcare practices.</p>
+<p><strong>Data Controller:</strong> MedBill Inc. For privacy inquiries, contact <a href="mailto:privacy@medbill.ai">privacy@medbill.ai</a>.</p>
+
+<h2>2. Information We Collect</h2>
+<p>We collect only the information necessary to provide our audit service:</p>
+
+<h3>2.1 Information You Provide</h3>
+<ul>
+<li><strong>Medical Bills & EOBs:</strong> PDFs, images, or forwarded emails containing medical bills, Explanation of Benefits (EOB) forms, and insurance correspondence. These contain Protected Health Information (PHI) including patient names, dates of service, CPT/ICD-10 codes, provider information, and billed amounts.</li>
+<li><strong>Contact Information:</strong> Your email address (required for report delivery). Optional: phone number for support.</li>
+<li><strong>Payment Information:</strong> When you purchase a Full Audit or B2B plan, payment is processed through <strong>Stripe</strong>. We do not store credit card numbers. Stripe's privacy policy applies to payment data.</li>
+<li><strong>Account Information:</strong> If you create an account, we store your name, email, and hashed password.</li>
+</ul>
+
+<h3>2.2 Information Collected Automatically</h3>
+<ul>
+<li><strong>Usage Data:</strong> Pages visited, upload timestamps, referral source, device type, browser type. Used for analytics and service improvement.</li>
+<li><strong>Cookies:</strong> Essential cookies for site functionality. Analytics cookies (GDPR/CCPA opt-in required). See our <a href="/cookies">Cookie Policy</a>.</li>
+</ul>
+
+<h2>3. How We Use Your Information</h2>
+<table>
+<tr><th>Purpose</th><th>Legal Basis</th><th>Data Used</th></tr>
+<tr><td>Medical bill audit (core service)</td><td>Performance of contract / Consent</td><td>Full medical bill data (PHI)</td></tr>
+<tr><td>Report delivery (email)</td><td>Performance of contract</td><td>Email address</td></tr>
+<tr><td>Payment processing</td><td>Performance of contract</td><td>Payment data (via Stripe)</td></tr>
+<tr><td>Service improvement & analytics</td><td>Legitimate interest</td><td>Aggregated, de-identified usage data</td></tr>
+<tr><td>Legal compliance</td><td>Legal obligation</td><td>As required by law</td></tr>
+</table>
+
+<h2>4. Protected Health Information (PHI) — HIPAA Compliance</h2>
+<p>Medical bills and EOBs contain Protected Health Information (PHI) as defined by HIPAA (Health Insurance Portability and Accountability Act). We handle PHI with the following safeguards:</p>
+
+<div class="highlight-box">
+<h3 style="margin-top:0">HIPAA Business Associate Status</h3>
+<p>When serving healthcare providers and medical practices (B2B), MedBill acts as a <strong>HIPAA Business Associate</strong>. We enter into Business Associate Agreements (BAAs) with covered entities upon request.</p>
+<p>For direct-to-consumer services, MedBill is <strong>not a HIPAA-covered entity</strong>. We process PHI solely to perform the billing audit service you request. We comply with applicable state privacy laws and industry best practices for PHI protection.</p>
+</div>
+
+<h3>4.1 Our PHI Safeguards</h3>
+<ul>
+<li><strong>Encryption in Transit:</strong> All data uploaded to MedBill is encrypted using TLS 1.3 (HTTPS). Email submissions are encrypted in transit via SMTP TLS.</li>
+<li><strong>Encryption at Rest:</strong> PHI stored in our systems is encrypted using AES-256. Source files are stored in Cloudflare R2 (SOC 2 compliant) with server-side encryption.</li>
+<li><strong>In-Memory Processing:</strong> During audit analysis, PHI is processed in memory only. Temporary files are immediately deleted after processing completes.</li>
+<li><strong>Access Controls:</strong> PHI is accessible only to the automated audit pipeline. No human accesses your bill data except as needed for support (with your explicit consent).</li>
+<li><strong>Data Minimization:</strong> We collect only the minimum PHI necessary to perform the audit. We do not request medical records, treatment history, or genetic information.</li>
+</ul>
+
+<h2>5. Data Retention</h2>
+<table>
+<tr><th>Data Type</th><th>Retention Period</th><th>Reason</th></tr>
+<tr><td>Source bill files (uploaded PDFs/images)</td><td>Deleted within <strong>24 hours</strong> of audit completion</td><td>Minimize PHI exposure</td></tr>
+<tr><td>Audit report (findings, dispute letter)</td><td><strong>30 days</strong> available via shareable link</td><td>Allow user access + dispute processing</td></tr>
+<tr><td>Email address + job metadata</td><td><strong>7 years</strong> (pseudonymized)</td><td>Legal compliance + service records</td></tr>
+<tr><td>Payment records</td><td>As required by tax law (typically 7 years)</td><td>Tax and financial compliance</td></tr>
+<tr><td>Analytics data</td><td><strong>26 months</strong> (aggregated, de-identified)</td><td>Service improvement</td></tr>
+</table>
+<p>You may request earlier deletion of your data at any time by emailing <a href="mailto:privacy@medbill.ai">privacy@medbill.ai</a>. We will delete all identifiable data within 14 days of verified request.</p>
+
+<h2>6. Data Sharing & Disclosure</h2>
+<p><strong>We never sell your personal information or PHI.</strong> We share data only in these limited circumstances:</p>
+<ul>
+<li><strong>Stripe:</strong> For payment processing. Stripe is PCI DSS Level 1 compliant.</li>
+<li><strong>Cloudflare:</strong> CDN and R2 object storage (SOC 2 Type II, ISO 27001).</li>
+<li><strong>AgentMail:</strong> For email delivery of reports and notifications.</li>
+<li><strong>Legal Requirement:</strong> If required by law, court order, or regulatory authority.</li>
+<li><strong>Your Consent:</strong> With your explicit, written consent for any other purpose.</li>
+</ul>
+
+<h2>7. Your Rights</h2>
+<p>Depending on your jurisdiction, you have the following rights regarding your data:</p>
+<table>
+<tr><th>Right</th><th>Description</th></tr>
+<tr><td><strong>Access</strong></td><td>Request a copy of the personal data we hold about you</td></tr>
+<tr><td><strong>Rectification</strong></td><td>Correct inaccurate or incomplete data</td></tr>
+<tr><td><strong>Deletion</strong> (Right to be Forgotten)</td><td>Request deletion of your data (we will delete within 14 days)</td></tr>
+<tr><td><strong>Restriction</strong></td><td>Limit how we process your data</td></tr>
+<tr><td><strong>Portability</strong></td><td>Receive your data in a machine-readable format</td></tr>
+<tr><td><strong>Objection</strong></td><td>Object to processing based on legitimate interests</td></tr>
+<tr><td><strong>Withdraw Consent</strong></td><td>Withdraw consent at any time (does not affect prior processing)</td></tr>
+</table>
+<p>To exercise any right, email <a href="mailto:privacy@medbill.ai">privacy@medbill.ai</a>. We will respond within 30 days (or as required by applicable law).</p>
+
+<h2>8. Cookies</h2>
+<p>We use essential cookies for site operation and optional analytics cookies. You can manage preferences at any time. See our full <a href="/cookies">Cookie Policy</a>.</p>
+
+<h2>9. Data Security</h2>
+<p>MedBill implements industry-standard security measures:</p>
+<ul>
+<li>TLS 1.3 encryption for all data in transit</li>
+<li>AES-256 encryption for data at rest</li>
+<li>Cloudflare infrastructure (SOC 2 Type II, ISO 27001 certified)</li>
+<li>Automated security scanning and penetration testing</li>
+<li>Strict access controls — no human access to PHI without explicit consent</li>
+<li>Regular security audits and updates</li>
+</ul>
+
+<h2>10. Children's Privacy</h2>
+<p>MedBill is not directed at individuals under 18. We do not knowingly collect information from children. If we discover a child has provided us with personal data, we will delete it immediately.</p>
+
+<h2>11. International Users</h2>
+<p>MedBill is based in the United States and processes data in US-based and EU-based cloud infrastructure. If you are accessing our service from the European Economic Area (EEA), United Kingdom, or other regions with data protection laws, your data may be transferred to and processed in the United States. We rely on Standard Contractual Clauses (SCCs) and Data Processing Addenda (DPAs) as appropriate transfer mechanisms.</p>
+
+<h2>12. Third-Party Links</h2>
+<p>Our website may contain links to third-party sites (e.g., Stripe, CMS.gov). We are not responsible for their privacy practices. We encourage you to review their privacy policies.</p>
+
+<h2>13. Changes to This Policy</h2>
+<p>We may update this Privacy Policy to reflect changes in our practices or legal requirements. Material changes will be notified via email (if you provided one) or a notice on our website. The "Last updated" date at the top of this page indicates when the policy was last revised.</p>
+
+<h2>14. Contact</h2>
+<p>For privacy-related inquiries, data subject requests, or to report a concern:</p>
+<ul>
+<li><strong>Email:</strong> <a href="mailto:privacy@medbill.ai">privacy@medbill.ai</a></li>
+<li><strong>Response Time:</strong> We respond to all privacy inquiries within 7 business days</li>
+<li><strong>Data Protection Officer:</strong> Privacy Team, MedBill Inc.</li>
+</ul>
+
+<h2>15. Governing Law</h2>
+<p>This Privacy Policy is governed by the laws of the State of Delaware, United States, without regard to its conflict of laws principles. By using MedBill, you consent to the data practices described in this policy.</p>
+
+</div></section>
+
+<footer class="site-footer"><div class="container footer-inner">
+<div class="footer-brand"><a href="/" class="footer-logo">MedBill</a><p class="footer-copy">&copy; 2026 MedBill Inc. All rights reserved.</p><p class="footer-disclaimer">MedBill is not a healthcare provider, insurance company, or law firm. Our services do not constitute medical or legal advice.</p></div>
+<div class="footer-links"><div class="footer-col"><h4>Product</h4><a href="/">Home</a><a href="/scan">Upload Bill</a><a href="/pricing">Pricing</a><a href="/b2b">For Practices</a></div><div class="footer-col"><h4>Company</h4><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a><a href="/cookies">Cookie Policy</a></div></div>
+<div class="footer-badge"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#1a3a5c"/><path d="M20 8c6.6 0 12 5.4 12 12s-5.4 12-12 12S8 26.6 8 20 13.4 8 20 8z" fill="none" stroke="white" stroke-width="1.5"/><path d="M16 20l3 3 5-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>HIPAA Compliant</span></div>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy — MedBill</title>
+<meta name="description" content="How MedBill uses cookies. Essential and analytics cookie management.">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>.legal-page{padding:80px 0}.legal-page h1{font-size:40px;font-weight:900;margin-bottom:8px;color:#111}.legal-page .last-updated{font-size:14px;color:#888;margin-bottom:40px}.legal-page h2{font-size:22px;font-weight:700;margin:40px 0 16px;color:#111;padding-bottom:8px;border-bottom:2px solid #1a3a5c}.legal-page p,.legal-page li{font-size:15px;color:#444;line-height:1.7;margin-bottom:12px}.legal-page ul{padding-left:24px;margin-bottom:16px}.legal-page table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}.legal-page table th,.legal-page table td{border:1px solid #e0e4e8;padding:10px 14px;text-align:left}.legal-page table th{background:#f8fafc;font-weight:600;color:#111}.legal-page strong{color:#111}.cookie-table td:nth-child(2){font-family:monospace;font-size:13px}</style>
+</head>
+<body>
+<div class="brand-stripe"></div>
+<header class="site-header"><div class="container header-inner"><a href="/" class="logo">MedBill</a><nav class="header-nav"><a href="/">Home</a><a href="/login" class="login-link">Log in</a></nav></div></header>
+<section class="legal-page"><div class="container" style="max-width:800px">
+<h1>Cookie Policy</h1>
+<p class="last-updated">Last updated: May 27, 2026</p>
+<p>This Cookie Policy explains how MedBill ("we," "us") uses cookies and similar tracking technologies on our website. By using our site, you consent to the use of cookies as described in this policy.</p>
+
+<h2>1. What Are Cookies</h2>
+<p>Cookies are small text files stored on your device when you visit a website. They help websites function properly, remember preferences, and understand how users interact with the site. Cookies can be "session" (deleted when you close your browser) or "persistent" (remain until they expire or are deleted).</p>
+
+<h2>2. Cookies We Use</h2>
+<table class="cookie-table">
+<tr><th>Type</th><th>Cookie Name(s)</th><th>Purpose</th><th>Duration</th></tr>
+<tr><td><strong>Essential</strong></td><td>medbill_session, __cf_bm</td><td>Site operation, CSRF protection, session management, Cloudflare security</td><td>Session / 30 minutes</td></tr>
+<tr><td><strong>Functionality</strong></td><td>upload_pref, theme</td><td>Remember upload preferences and theme choice</td><td>1 year</td></tr>
+<tr><td><strong>Analytics</strong> (opt-in)</td><td>_ga, _ga_*, _clck</td><td>Google Analytics — page views, usage patterns (aggregated, anonymized)</td><td>2 years / 1 year</td></tr>
+<tr><td><strong>Payment</strong></td><td>__stripe_*, stripe.csrf</td><td>Stripe payment processing (set by Stripe on checkout)</td><td>Session / 1 year</td></tr>
+</table>
+
+<h2>3. Essential Cookies</h2>
+<p>Essential cookies are necessary for the website to function. They enable core features like secure upload, session management, and security (Cloudflare bot detection). These cookies cannot be disabled as they are required for the Service to operate.</p>
+
+<h2>4. Analytics Cookies (Opt-In)</h2>
+<p>We use Google Analytics to understand how visitors use our site — which pages are visited, how long users stay, and what features are used. This data is aggregated and anonymized. Analytics cookies are <strong>disabled by default</strong> and only set after you provide consent.</p>
+<p><strong>To enable or disable analytics cookies:</strong></p>
+<div style="margin:16px 0" id="cookie-controls">
+<button onclick="toggleAnalytics(true)" class="btn btn-primary" style="margin-right:8px">Enable Analytics</button>
+<button onclick="toggleAnalytics(false)" class="btn btn-outline">Disable Analytics</button>
+</div>
+<script>
+function toggleAnalytics(enabled){document.cookie='medbill_analytics_consent='+(enabled?'granted':'denied')+';path=/;max-age=31536000';alert(enabled?'Analytics enabled. Reload to apply.':'Analytics disabled.')}
+// Check current consent
+if(document.cookie.includes('medbill_analytics_consent=granted'))document.getElementById('cookie-controls').innerHTML='<p style="color:#15a077;font-weight:600">✅ Analytics enabled. <button onclick="toggleAnalytics(false)" class="btn btn-outline" style="margin-left:8px">Disable</button></p>';
+</script>
+</div>
+
+<h2>5. Third-Party Cookies</h2>
+<p>Some third-party services we use may set their own cookies:</p>
+<ul>
+<li><strong>Stripe:</strong> Sets cookies on our checkout page for payment processing. See <a href="https://stripe.com/privacy" target="_blank">Stripe's Privacy Policy</a>.</li>
+<li><strong>Cloudflare:</strong> Sets `__cf_bm` cookie for bot management. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Cloudflare's Privacy Policy</a>.</li>
+<li><strong>Google Analytics:</strong> Only activated with your opt-in consent.</li>
+</ul>
+<p>We do not use advertising cookies, tracking pixels, or third-party marketing cookies.</p>
+
+<h2>6. Your Cookie Choices</h2>
+<table>
+<tr><th>Action</th><th>How To</th></tr>
+<tr><td><strong>Withdraw Analytics Consent</strong></td><td>Click "Disable Analytics" button above, or clear cookies via browser settings</td></tr>
+<tr><td><strong>Disable All Cookies (Essential)</strong></td><td>Configure your browser to block cookies. Note: This may break site functionality and prevent uploads.</td></tr>
+<tr><td><strong>Clear Cookies (Browser)</strong></td><td>Browser settings → Privacy → Clear cookies. Chrome: Settings → Privacy → Clear browsing data. Firefox: Options → Privacy → Clear data. Safari: Preferences → Privacy → Manage Website Data.</td></tr>
+<tr><td><strong>Do Not Track (DNT)</strong></td><td>We respect DNT signals. If your browser sends DNT: 1, analytics cookies are not set.</td></tr>
+</table>
+
+<h2>7. GDPR (EEA Users)</h2>
+<p>If you are in the European Economic Area (EEA), we process cookie data based on your explicit consent (GDPR Article 6(1)(a)). You have the right to withdraw consent at any time as described above.</p>
+
+<h2>8. CCPA (California Users)</h2>
+<p>California residents have the right to opt out of the sale of their personal information. MedBill does not sell personal information. We do not use advertising cookies or share data for cross-context behavioral advertising.</p>
+
+<h2>9. Updates</h2>
+<p>We may update this Cookie Policy. Changes will be posted here with an updated "Last updated" date. Material changes will be notified via email or site notice.</p>
+
+<h2>10. Contact</h2>
+<p>For questions about cookies: <a href="mailto:privacy@medbill.ai">privacy@medbill.ai</a></p>
+</div></section>
+
+<footer class="site-footer"><div class="container footer-inner">
+<div class="footer-brand"><a href="/" class="footer-logo">MedBill</a><p class="footer-copy">&copy; 2026 MedBill Inc.</p></div>
+<div class="footer-links"><div class="footer-col"><h4>Legal</h4><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a><a href="/cookies">Cookie Policy</a></div></div></div></footer>
+</body>
+</html>

@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medbill-auditor"
+version = "0.1.0"
+description = "MedBill Auditor — AI-powered medical bill auditing platform (audit engine + cron worker + Pages site)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Ola Turmo", email = "ola.turmo@gmail.com" },
+]
+# The OCR deps in engine/requirements.txt are optional — the CMS
+# comparator + report generator + the test suite run without any
+# of them. Keep the runtime deps minimal here; the OCR-only
+# engine/requirements.txt is for production deploys.
+dependencies = []
+
+[project.optional-dependencies]
+ocr = [
+    "pdfplumber>=0.11.0",
+    "pytesseract>=0.3.10",
+    "Pillow>=10.0.0",
+    "python-dotenv>=1.0.0",
+]
+test = [
+    # No external test deps. Tests use stdlib `unittest` only.
+    # This is intentional: the audit engine is small and pure;
+    # pulling pytest just to run it isn't worth the dep tree.
+]
+
+# Tests are run via:
+#   python3 -m unittest engine.test_audit -v
+# from the repo root. No [project.scripts] entry for tests;
+# keep the pyproject minimal.
+
+[tool.setuptools]
+# The repo is not a published package; this section exists so
+# `python3 -m build` and `python3 -m pip install -e .` work for
+# local dev / CI. The CF Pages deploy path doesn't use this
+# pyproject.toml at all; it bundles the worker scripts directly.
+packages = ["engine"]
